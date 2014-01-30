@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="text:Google Analytics ID" content=''/>
+        {block:Description}
+        <meta name="description" content="{MetaDescription}" />
+        {/block:Description}
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <title>{block:TagPage}{Tag} posts - {/block:TagPage} {block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
+        <link rel="alternate" type="application/rss+xml" href="{RSS}">
+        <link rel="shortcut icon" href="{Favicon}">
+
+        <style>
+            * {
+                font-style: normal;
+                font-weight: normal;
+            }
+            body {
+                font-size: 125%;
+                line-height: 1.5;
+                text-align: center;
+            }
+            body *:not(script) {
+                padding: 0;
+                margin: auto;
+                display: inline;
+                vertical-align: 25%;
+            }
+            body *:not(script):after {
+                clear: left;
+                content: "";
+                display: block;
+            }
+            ul {
+                list-style: none;
+            }
+            ul li:first-child {
+                vertical-align: bottom;
+            }
+            ul li:last-child {
+                vertical-align: 1001%;
+            }
+            img {
+                width: auto;
+                height: auto;
+                max-width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+
+        <header>
+            <div>
+                <img src="{PortraitURL-128}"/>
+                <h1><a href="/" title="{lang:Home}">{Title}</a></h1>
+                {block:Description}
+                <p>{Description}</p>
+                {/block:Description}
+            </div>
+
+            <ul>
+                {block:HasPages}
+                {block:Pages}
+                <li><a href="{URL}">{Label}</a></li>
+                {/block:Pages}
+                {/block:HasPages}
+                {block:SubmissionsEnabled}
+                <li><a href="/submit">{SubmitLabel}</a></li>
+                {/block:SubmissionsEnabled}
+                {block:AskEnabled}
+                <li><a href="/ask">{AskLabel}</a></li>
+                {/block:AskEnabled}
+            </ul>
+
+            <form action="/search" method="get">
+                <input type="text" name="q" value="{SearchQuery}"/>
+                <input type="submit" value="~>"/>
+            </form>
+        </header>
+
+        <article>
+            {block:Posts}
+
+                {block:Text}
+                <div>
+                    {block:Title}<h1><a href="{Permalink}">{Title}</a></h1>{/block:Title}
+                    {Body}
+                </div>
+                {/block:Text}
+
+                {block:Photo}
+                <div>
+                    {LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}" />{LinkCloseTag}
+                    {block:Caption}{Caption}{/block:Caption}
+                </div>
+                {/block:Photo}
+
+                {block:Photoset}
+                <div>
+                    {Photoset-500}
+                    {block:Caption}{Caption}{/block:Caption}
+                </div>
+                {/block:Photoset}
+
+                {block:Panorama}
+                <div>
+                {LinkOpenTag}<img src="{PhotoURL-Panorama}" alt="{PhotoAlt}" />{LinkCloseTag}
+
+                {block:Caption}{Caption}{/block:Caption}
+                </div>
+                {/block:Panorama}
+
+                {block:Quote}
+                <div>
+                    <blockquote>{Quote}</blockquote>
+                    {block:Source}<cite> {Source} </cite>{/block:Source}
+                </div>
+                {/block:Quote}
+
+                {block:Link}
+                <div>
+                    <h1><a href="{URL}">{Name}</a></h1>
+                    {block:Description}{Description}{/block:Description}
+                </div>
+                {/block:Link}
+
+                {block:Chat}
+                <div>
+                    <ul>
+                        {block:Lines}<li class="{Alt}">{block:Label}<span class="label">{Label}</span>{/block:Label}<p> {Line} </p></li>{/block:Lines}
+                    </ul>
+                </div>
+                {/block:Chat}
+
+                {block:Audio}
+                <div>
+                    {block:TrackName}<h1><a href="{Permalink}">{TrackName}</a></h1>{/block:TrackName}
+                    {block:AlbumArt}<img src="{AlbumArtURL}" width="500" height="500"/>{/block:AlbumArt}
+                    <div class="player">{AudioPlayerBlack}</div>
+                    {block:Caption}{Caption}{/block:Caption}
+                </div>
+                {/block:Audio}
+
+                {block:Video}
+                <div>
+                    <div>{Video-500}</div>
+                    {block:Caption}{Caption}{/block:Caption}
+                </div>
+                {/block:Video}
+
+                {block:Answer}
+                <div>
+                    <h1>{Question}</h1>
+                    <div>
+                        <img src="{AskerPortraitURL-96}"/>
+                        <p>{Asker}</p>
+                    </div>
+                    {Answer}
+                </div>
+                {/block:Answer}
+
+                {block:Date}
+                <div>
+                    <ul>
+                        <li><a href="{Permalink}"> <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}">{DayOfMonth} {Month} {Year}</time> </a></li>
+
+                        {block:NoteCount}<li><a class="notecount" href="{Permalink}#notes">{NoteCountWithLabel}</a></li>{/block:NoteCount}
+
+                        {block:ContentSource}
+                        <li><a href="{SourceURL}">{lang:Source}:{block:NoSourceLogo}{SourceTitle}{/block:NoSourceLogo}
+                        {block:SourceLogo}<img src="{BlackLogoURL}" width="{LogoWidth}"height="{LogoHeight}" alt="{SourceTitle}" />{/block:SourceLogo}</a></li>
+                        {/block:ContentSource}
+                    </ul>
+
+                    {block:PermalinkPage}
+                    {block:HasTags}
+                    <ul>
+                        {block:Tags}<li><a href="{TagURL}">{Tag}</a> </li>{/block:Tags}
+                    </ul>
+                    {/block:HasTags}
+
+                    {block:PostNotes}
+                    <div>
+                        {PostNotes}
+                    </div>
+                    {/block:PostNotes}
+                    {/block:PermalinkPage}
+                </div>
+                {/block:Date}
+
+            {/block:Posts}
+        </article>
+
+        {block:Pagination}
+        <footer>
+            <ul>
+                {block:PreviousPage}<li><a href="{PreviousPage}">Previous page</a></li>{/block:PreviousPage}
+                {block:NextPage}<li><a href="{NextPage}">Next page</a></li>{/block:NextPage}
+            </ul>
+        </footer>
+        {/block:Pagination}
+
+        <script>
+            var _gaq=[['_setAccount','{text:Google Analytics ID}'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+    </body>
+</html>
