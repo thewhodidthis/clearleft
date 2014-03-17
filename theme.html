@@ -44,6 +44,13 @@
             ul li:last-child {
                 vertical-align: 1001%;
             }
+            ul:last-of-type li:last-child a {
+                display: inline;
+                padding: 0 2.83%;
+            }
+            ul:last-of-type li:last-child a:after {
+                display: none;
+            }
             img {
                 width: auto;
                 height: auto;
@@ -192,9 +199,13 @@
                 {block:SubmissionsEnabled}
                 <li><a href="/submit">{SubmitLabel}</a></li>
                 {/block:SubmissionsEnabled}
+                <li>
+                <a href="http://{Name}.tumblr.com/archive">Archive</a>
                 {block:AskEnabled}
-                <li><a href="/ask">{AskLabel}</a></li>
+                <a href="/ask">{AskLabel}</a>
                 {/block:AskEnabled}
+                <a href="https://www.tumblr.com/register/follow/{Name}">Follow</a>
+                </li>
             </ul>
 
             <h1><a href="/" title="{lang:Home}">{Title}</a></h1>
