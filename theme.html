@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta name="text:Google Analytics ID" content=''/>
+        <meta name="text:Google Analytics ID" content="">
         {block:Description}
-        <meta name="description" content="{MetaDescription}" />
+        <meta name="description" content="{MetaDescription}">
         {/block:Description}
         <meta charset="utf-8">
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width">
+        <meta name="if:Show email" content="0">
+        <meta name="text:EmailLabel" content="Email">
+        <meta name="text:Email" content="">
         <title>{block:TagPage}{Tag} posts - {/block:TagPage} {block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
         <link rel="alternate" type="application/rss+xml" href="{RSS}">
         <link rel="shortcut icon" href="{Favicon}">
@@ -55,6 +58,9 @@
                 width: auto;
                 height: auto;
                 max-width: 100%;
+            }
+            a:active {
+                font-style: italic;
             }
         </style>
 
@@ -196,15 +202,19 @@
                 <li><a href="{URL}">{Label}</a></li>
                 {/block:Pages}
                 {/block:HasPages}
+
                 {block:SubmissionsEnabled}
                 <li><a href="/submit">{SubmitLabel}</a></li>
                 {/block:SubmissionsEnabled}
+
                 <li>
-                <a href="http://{Name}.tumblr.com/archive">Archive</a>
-                {block:AskEnabled}
-                <a href="/ask">{AskLabel}</a>
-                {/block:AskEnabled}
-                <a href="https://www.tumblr.com/register/follow/{Name}">Follow</a>
+                    <a href="http://{Name}.tumblr.com/archive">Archive</a>
+
+                    {block:AskEnabled}
+                    <a href="/ask">{AskLabel}</a>
+                    {/block:AskEnabled}
+
+                    <a href="https://www.tumblr.com/register/follow/{Name}">Follow</a>
                 </li>
             </ul>
 
