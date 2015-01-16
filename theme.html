@@ -126,7 +126,7 @@
 
                 {block:Link}
                 <div>
-                    <h1><a href="{URL}">{Name}</a></h1>
+                    <h4><a href="{URL}">{Name}</a></h4>
                     {block:Description}{Description}{/block:Description}
                 </div>
                 {/block:Link}
@@ -141,7 +141,7 @@
 
                 {block:Audio}
                 <div>
-                    {block:TrackName}<h1><a href="{Permalink}">{TrackName}</a></h1>{/block:TrackName}
+                    {block:TrackName}<h4><a href="{Permalink}">{TrackName}</a></h4>{/block:TrackName}
                     {block:AlbumArt}<img src="{AlbumArtURL}" width="500" height="500"/>{/block:AlbumArt}
                     <div class="player">{AudioPlayerBlack}</div>
                     {block:Caption}{Caption}{/block:Caption}
@@ -157,7 +157,7 @@
 
                 {block:Answer}
                 <div>
-                    <h1>{Question}</h1>
+                    <h4>{Question}</h4>
                     <div>
                         <img src="{AskerPortraitURL-96}"/>
                         <p>{Asker}</p>
@@ -228,7 +228,7 @@
                 </li>
             </ul>
 
-            <h1><a href="/" title="{lang:Home}">{Title}</a></h1>
+            <h4><a href="/" title="{lang:Home}">{Title}</a></h4>
             {block:Description}
             <p>{Description}</p>
             {/block:Description}
