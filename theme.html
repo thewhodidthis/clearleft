@@ -3,7 +3,6 @@
     <head>
         <meta charset="utf-8">
         <meta name="text:Google Analytics ID" content="">
-        <meta name="text:Google Analytics URL" content="auto">
         {block:Description}
         <meta name="description" content="{MetaDescription}">
         {/block:Description}
@@ -146,7 +145,7 @@
           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
           })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-          ga('create', '{text:Google Analytics ID}', '{text:Google Analytics URL}');
+          ga('create', '{text:Google Analytics ID}', 'auto');
           ga('send', 'pageview');
         </script>
     </head>
