@@ -383,18 +383,16 @@
                 </ul>
                 {/block:HasPages}
 
-                {block:SubmissionsEnabled}
-                <p class="submit">
-                    <a href="/submit">{SubmitLabel}</a>
-                </p>
-                {/block:SubmissionsEnabled}
-
                 <ul class="extra">
                     <li><a href="http://{Name}.tumblr.com/archive">Archive {CopyrightYears}</a></li>
 
                     {block:AskEnabled}
                     <li><a href="/ask">{AskLabel}</a></li>
                     {/block:AskEnabled}
+
+                    {block:SubmissionsEnabled}
+                    <li><a href="/submit">{SubmitLabel}</a></li>
+                    {/block:SubmissionsEnabled}
 
                     <li><a href="https://www.tumblr.com/register/follow/{Name}">Follow</a></li>
                 </ul>
