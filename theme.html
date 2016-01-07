@@ -341,13 +341,11 @@
                         {block:ContentSource}
                         <li>
                             <a href="{SourceURL}">
-                              {lang:Source}:
-                              {block:NoSourceLogo}
-                              {SourceTitle}
-                              {/block:NoSourceLogo}
-                              {block:SourceLogo}
-                              <img src="{BlackLogoURL}" width="{LogoWidth}"height="{LogoHeight}" alt="{SourceTitle}" />
-                              {/block:SourceLogo}
+                                {lang:Source}
+                                {block:SourceLogo}
+                                <img src="{BlackLogoURL}" width="{LogoWidth}"height="{LogoHeight}" alt="{SourceTitle}" />
+                                {/block:SourceLogo}
+                                <em>{SourceTitle} &rarr;</em>
                             </a>
                         </li>
                         {/block:ContentSource}
