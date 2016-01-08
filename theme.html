@@ -91,10 +91,6 @@
             cite {
                 font-style: italic;
             }
-            cite:before {
-                content: "- ";
-                display: inline;
-            }
 
             .post {
                 display: inline;
@@ -129,6 +125,13 @@
                 margin-top: 0;
             }
 
+            .post--answer
+            .post__content p {
+                margin-top: 1.5rem;
+                text-align: center;
+                text-transform: uppercase;
+            }
+
             .post__content blockquote,
             .post__content cite {
                 text-align: left;
@@ -139,6 +142,13 @@
             .post__content cite {
                 font-size: .875rem;
                 margin-top: 0.25rem;
+            }
+
+            .post--answer
+            .post__content blockquote,
+            .post--answer
+            .post__content cite {
+                text-align: center;
             }
 
             .post__meta {
@@ -190,7 +200,7 @@
                 text-decoration: underline;
             }
             .footer ul:last-of-type li {
-                display: inline;
+                display: inline-block;
                 padding: 0 5.55555555555%;
             }
             .footer img {
@@ -207,15 +217,10 @@
             <article class="post post--{PostType}">
                 {block:Answer}
                 <div class="post__content">
-                    <div class="question">
-                        <h4>{Question}</h4>
-                        <img src="{AskerPortraitURL-96}"/>
-                        <p>{Asker}</p>
-                    </div>
-
-                    <div class="answer">
-                        {Answer}
-                    </div>
+                    <blockquote>{Question}</blockquote>
+                    <cite>by {Asker}</cite>
+                    
+                    {Answer}
                 </div>
                 {/block:Answer}
 
@@ -297,7 +302,7 @@
                     <blockquote>{Quote}</blockquote>
 
                     {block:Source}
-                    <cite>{Source}</cite>
+                    <cite>&mdash; {Source}</cite>
                     {/block:Source}
                 </div>
                 {/block:Quote}
